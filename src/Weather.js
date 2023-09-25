@@ -10,8 +10,8 @@ const Weather = () => {
     const[city,setCity]=useState("");
     const[data,setData]=useState();
         
-
-
+   
+ 
     const fetchData = async () =>{
         try{
         const response = await Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`);
@@ -39,8 +39,11 @@ const Weather = () => {
             {data && (
             <div className='container'>
                     <div className='weather-info'>
-                        <h1 className='weather-desc'>Today's Weather condition : {data.weather[0].description}</h1>
-                        <div className='temp'>The temperature in {data.name} is {Math.round(data.main.temp)}ºF</div>
+                        <h1 className='weather-title'>Today's Weather condition : </h1>
+                        <h2 className='weather-desc'>{data.weather[0].description}</h2>
+                        <div className='temp'>
+                            The temperature in {data.name} is {Math.round(data.main.temp - 273.15)}ºC  ({Math.round(data.main.temp)}ºF)
+                        </div>
                     </div>
                     
             </div>
@@ -52,3 +55,15 @@ const Weather = () => {
 }
 
 export default Weather;
+
+
+
+
+ // function fahrenheitToCelsius(fahrenheit) 
+    // {
+    //     return ((fahrenheit - 32) * 5) / 9;
+    // }
+
+    /* The temperature in {data.name} is {Math.round(data.main.temp)}ºF */
+                        /* The temperature in {data.name} is{' '}
+                {Math.round(data.main.temp)}ºF  ({273.15-fahrenheitToCelsius(data.main.temp).toFixed(2)}ºC) */

@@ -45,6 +45,16 @@
   font-style: italic;
 }
 
+.weather-title{
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 35px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  text-decoration: underline;
+}
+
 .weather-desc{
   justify-content: center;
   align-items: center;
